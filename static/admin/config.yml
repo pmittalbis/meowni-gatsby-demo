@@ -1,0 +1,57 @@
+backend:
+  name: git-gateway
+  branch: master
+  
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "post"
+    label: "Post"
+    folder: "src/pages/post"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "about"
+    label: "About"
+    files:
+      - file: "src/pages/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about"}
+          - {label: "Title", name: "title", widget: "hidden"}
+          - {label: "Publish Date", name: "date", widget: "hidden"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "project"
+    label: "Project"
+    folder: "src/pages/project"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Link", name: "link", widget: "string"}
+
+  - name: "talk"
+    label: "Talk"
+    folder: "src/pages/talk"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{body}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "talk"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Title", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "hidden", default: "talk"}
+      - {label: "Link", name: "link", widget: "string", default: " "}
+      - {label: "Description", name: "description", widget: "string", default: " "}
+      - {label: "Video Link", name: "video_link", widget: "string", default: " "}
